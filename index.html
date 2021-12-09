@@ -1,34 +1,125 @@
-<!--
-
-This lovely snipped was penned by Maxilus Frankilus
-
--->
-
 <head>
-<style>
-	body {
-		font-family: Gothic;
-		font-size: 410;
-		text-align: center;
-	}
-	p {
-		font-size: 180;
-	}
-	a {
-		font-size: 80;
-	}
-	h1 {
-		line-height: 600px;
-		margin: 100px 0;
-	}
-	#bottom {
-		width: 100%;
-		text-align: center;
-	}
-</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<style>
+		#genres {
+
+		}
+		#genres div {
+			float: left;
+			padding-right: 10px;
+		}
+		#artists {
+			clear: both;
+			float: left;
+		}
+		#artists div {
+			padding-bottom: 10px;
+		}
+	</style>
+
 </head>
 <body>
-<h1>Max<br>&nbspwell Fra<br>&nbspnks</h1>
-<p><i></i></p>
-<div id="bottom"><a href="mailto:mfranks142857@gmail.com">mfranks142857@gmail.com</a></div>
+	<div id='genres'>
+		<h3>Genres</h3>
+		<div class='g' id='a'>noise</div>
+		<div class='g' id='b'>electronic</div>
+		<div class='g' id='c'>drone</div>
+		<div class='g' id='d'>ambient</div>
+		<div class='g' id='e'>post-noir</div>
+		<div class='g' id='f'>jazz</div>
+		<div class='g' id='g'>ethereal</div>
+		<div class='g' id='h'>punk</div>
+		<div class='g' id='i'>performance art</div>
+		<div class='g' id='j'>found sound</div>
+		<div class='g' id='k'>avant-garde</div>
+	</div><br>
+	<div id='artists'>
+		<h3>Artists</h3>
+		<div class='a' id='0'>boots</div>
+		<div class='a' id='1'>deltalys</div>
+		<div class='a' id='2'>virginia state</div>
+		<div class='a' id='3'>elane</div>
+		<div class='a' id='4'>wounded hollow</div>
+		<div class='a' id='5'>that moves</div>
+		<div class='a' id='6'>rubber lung</div>
+		<div class='a' id='7'>spookstina</div>
+	</div>
 </body>
+
+<script>
+	$(".g").css('color', 'black');
+	$(".a").css('color', 'gray');
+	
+	dict = {
+		0: ['a','b','k'],
+		1: ['a','b','g'],
+		2: ['a','c','d'],
+		3: ['a','c','d'],
+		4: ['a','d','e','f'],
+		5: ['a','c','k'],
+		6: ['a','h','i'],
+		7: ['a','c','d','j']
+	};
+
+	dict2 = {
+		a: [],
+		b: [],
+		c: [],
+		d: [],
+		e: [],
+		f: [],
+		g: [],
+		h: [],
+		i: [],
+		j: [],
+		k: []
+	}
+	// build alternate dictionary
+	dict_length = Object.keys(dict).length;
+	for (var x = 0; x < dict_length; x++) {
+		console.log(dict[x]);
+		for (var y = 0; y < dict[x].length; y++) {
+			dict2[dict[x][y]].push(x);
+		}
+	}
+	console.log(dict2);
+
+
+	$(".g").click(function(event) {
+		event.preventDefault();
+		$(".g").css('color', 'black');
+		$(".a").css('color', 'gray');
+
+		let t = event.target;
+
+		$("#" + t.id).css('color', 'red');
+
+		let genre = event.target.id;
+		let artists = dict2[genre];
+
+		for (var g = 0; g < artists.length; g++) {
+			//console.log(genres[g]);
+			$("#" + artists[g]).css('color', 'red');
+		}
+	});
+
+	$(".a").click(function(event) {
+		event.preventDefault();
+
+		$(".g").css('color', 'black');
+		$(".a").css('color', 'gray');
+
+		let t = event.target;
+
+		$("#" + t.id).css('color', 'red');
+
+		let artist = event.target.id;
+		let genres = dict[artist];
+
+		for (var g = 0; g < genres.length; g++) {
+			console.log(genres[g]);
+			$("#" + genres[g]).css('color', 'red');
+		}
+	});
+</script>
