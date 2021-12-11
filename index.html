@@ -2,26 +2,48 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<style>
+		body {
+			background-image: url(orb.jpeg);
+			color: white;
+			font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua";
+		}
 		#genres {
+			float: left;
+			margin: 20px 10px 10px 10px;
 			font-size: 30px;
+
 		}
 		#genres div {
 			float: left;
 			padding-right: 17px;
 		}
+		#divider {
+			float: left;
+			clear: both;
+			color: red;
+			font-size: 40px;
+			margin: 0 0px;
+
+			border: 10px;
+			border-radius: 5px;
+			padding: 0 10px;
+			background-color: rgba(0,0,0,0.5);
+		}
+		#divider p {
+			margin: 4px 0;
+		}
+
 		#artists {
+			margin: 10px 10px 0 10px;
 			clear: both;
 			float: left;
 			font-size: 30px;
-		}
-		#artists div {
 		}
 	</style>
 
 </head>
 <body>
 	<div id='genres'>
-		<h3>Genres</h3>
 		<div class='g' id='a'>noise</div>
 		<div class='g' id='b'>electronic</div>
 		<div class='g' id='c'>drone</div>
@@ -33,23 +55,26 @@
 		<div class='g' id='i'>performance art</div>
 		<div class='g' id='j'>found sound</div>
 		<div class='g' id='k'>avant-garde</div>
-	</div><br>
+	</div>
+	<div id='divider'>
+		<p>strange loop noise fair</p>
+	</div>
 	<div id='artists'>
-		<h3>Artists</h3>
-		<div class='a' id='0'>boots</div>
-		<div class='a' id='1'>deltalys</div>
-		<div class='a' id='2'>virginia state</div>
-		<div class='a' id='3'>elane</div>
-		<div class='a' id='4'>wounded hollow</div>
-		<div class='a' id='5'>that moves</div>
-		<div class='a' id='6'>rubber lung</div>
-		<div class='a' id='7'>spookstina</div>
+		<div class='a' id='0'>0700 - boots</div>
+		<div class='a' id='2'>0735 - virginia state</div>
+		<div class='a' id='4'>0810 - wounded hollow</div>
+		<div class='a' id='1'>0845 - deltalys</div>
+
+		<div class='a' id='6'>0920 - rubber lung</div>
+		<div class='a' id='3'>0955 - elane</div>
+		<div class='a' id='7'>1030 - spookstina</div>
+		<div class='a' id='5'>1105 - that moves</div>
 	</div>
 </body>
 
 <script>
-	$(".g").css('color', 'black');
-	$(".a").css('color', 'gray');
+	$(".g").css('color', 'white');
+	$(".a").css('color', 'white');
 	
 	dict = {
 		0: ['a','b','k'],
@@ -88,8 +113,8 @@
 
 	$(".g").click(function(event) {
 		event.preventDefault();
-		$(".g").css('color', 'black');
-		$(".a").css('color', 'gray');
+		$(".g").css('color', 'white');
+		$(".a").css('color', 'white');
 
 		let t = event.target;
 
@@ -107,8 +132,8 @@
 	$(".a").click(function(event) {
 		event.preventDefault();
 
-		$(".g").css('color', 'black');
-		$(".a").css('color', 'gray');
+		$(".g").css('color', 'white');
+		$(".a").css('color', 'white');
 
 		let t = event.target;
 
