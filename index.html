@@ -1,154 +1,50 @@
+<html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 	<style>
-		body {
-			background-image: url(orb.jpeg);
-			background-repeat: no-repeat;
-			background-size: cover;
+		body, html {
+			height: 100%;
+			margin: 0;
 			color: white;
 			font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua";
+			background-image: url("bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
-		#genres {
-			float: left;
-			margin: 20px 15px;
-			font-size: 3em;
-			text-shadow: 2px 2px #000;
-
+/*		#bg {
+			background-image: url("bg.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}*/
+		#title {
+			position: fixed;
+			width: 70vw;
+			height: auto;
+			margin: 5vh 15vw;
 		}
-		#genres div {
-			float: left;
-			padding-right: 17px;
+		#title img {
+			width: 100%;
 		}
-		#divider {
-			float: left;
-			clear: both;
-			color: red;
-			font-size: 5.1em;
-
-			margin: 0 0;
-			border-radius: 5px;
-			padding: 10px 15px;
-			background-color: rgba(0,0,0,0.5);
+		#links {
+			width: 100%;
+			position: fixed;
+			bottom: 5vh;
+			text-align: center;
 		}
-		#divider p {
-			margin: 4px 0;
-		}
-
-		#artists {
-			margin: 20px 15px;
-			clear: both;
-			float: left;
-			font-size: 3em;
-			text-shadow: 2px 2px #000;
-			width: 90%;
+		#links a {
+			color: white;
+			margin-right: 10px;
+			font-size: 20px
 		}
 	</style>
-
 </head>
 <body>
-	<div id='genres'>
-		<div class='g' id='a'>noise</div>
-		<div class='g' id='b'>electronic</div>
-		<div class='g' id='c'>drone</div>
-		<div class='g' id='d'>ambient</div>
-		<div class='g' id='e'>post-noir</div>
-		<div class='g' id='f'>jazz</div>
-		<div class='g' id='g'>ethereal</div>
-		<div class='g' id='h'>punk</div>
-		<div class='g' id='i'>performance art</div>
-		<div class='g' id='j'>found sound</div>
-		<div class='g' id='k'>avant-garde</div>
-	</div>
-	<div id='divider'>
-		<p>Strange Loop Noise Fair</p>
-	</div>
-	<div id='artists'>
-		<div class='a' id='0'>0700 - boots</div>
-		<div class='a' id='2'>0735 - virginia state</div>
-		<div class='a' id='4'>0810 - wounded hollow</div>
-		<div class='a' id='1'>0845 - deltalys</div>
-
-		<div class='a' id='6'>0920 - rubber lung</div>
-		<div class='a' id='3'>0955 - elane</div>
-		<div class='a' id='7'>1030 - spookstina</div>
-		<div class='a' id='5'>1105 - that moves</div>
+	<div id="bg"></div>
+	<div id="title"><img src="title.png"></div>
+	<div id="links">
+		<p>Thank you for supporting experimental music in Greenville, SC</p>
+		<a href="//www.venmo.com/u/MaxwellFranks">VENMO</a>
+		<a href="//www.cash.app/$MaxwellFranks4">CASH APP</a>
+		<a href="//paypal.me/MaxwellFranks">PAY PAL</a>
 	</div>
 </body>
-
-<script>
-	$(".g").css('color', 'white');
-	$(".a").css('color', 'white');
-	
-	dict = {
-		0: ['a','b','k'],
-		1: ['a','b','g'],
-		2: ['a','c','d'],
-		3: ['a','c','d'],
-		4: ['a','d','e','f'],
-		5: ['a','c','k'],
-		6: ['a','h','i'],
-		7: ['a','c','d','j']
-	};
-
-	dict2 = {
-		a: [],
-		b: [],
-		c: [],
-		d: [],
-		e: [],
-		f: [],
-		g: [],
-		h: [],
-		i: [],
-		j: [],
-		k: []
-	}
-	// build alternate dictionary
-	dict_length = Object.keys(dict).length;
-	for (var x = 0; x < dict_length; x++) {
-		console.log(dict[x]);
-		for (var y = 0; y < dict[x].length; y++) {
-			dict2[dict[x][y]].push(x);
-		}
-	}
-	console.log(dict2);
-
-
-	$(".g").click(function(event) {
-		event.preventDefault();
-		$(".g").css('color', 'white');
-		$(".a").css('color', 'white');
-
-		let t = event.target;
-
-		$("#" + t.id).css('color', 'red');
-
-		let genre = event.target.id;
-		let artists = dict2[genre];
-
-		for (var g = 0; g < artists.length; g++) {
-			//console.log(genres[g]);
-			$("#" + artists[g]).css('color', 'red');
-		}
-	});
-
-	$(".a").click(function(event) {
-		event.preventDefault();
-
-		$(".g").css('color', 'white');
-		$(".a").css('color', 'white');
-
-		let t = event.target;
-
-		$("#" + t.id).css('color', 'red');
-
-		let artist = event.target.id;
-		let genres = dict[artist];
-
-		for (var g = 0; g < genres.length; g++) {
-			console.log(genres[g]);
-			$("#" + genres[g]).css('color', 'red');
-		}
-	});
-</script>
+</html>
